@@ -15,7 +15,7 @@ public class AutoFileSystem {
     public String fullDir = "";
 
     String root = "";
-    Queue<String> subdir = new PriorityQueue<String>();
+    Stack<String> subdir = new Stack<String>();
 
     public AutoFileSystem() {
         files = new ArrayList<String>();
@@ -23,12 +23,12 @@ public class AutoFileSystem {
     }
 
     public void AddSubdirectory(String subdirectory) {
-        subdir.add(subdirectory);
+        subdir.push(subdirectory);
     }
 
     public void RemoveSubdirectory() {
         if(subdir.size() > 0)
-            subdir.remove();
+            subdir.pop();
 
     }
 
