@@ -1,0 +1,1 @@
+insert into car (make, model, price) values ('Ford', 'Focus', 11300);
