@@ -68,6 +68,8 @@ public class WebConfig {
 			//List<Car> cars = service.getMatchingCars(c);
 			Map<String, Object> map = new HashMap<>();
 			map.put("pageTitle", "Files");
+			map.put("pageTitle", "Cars");
+			map.put("fullDir", autoFileSystem.fullDir);
 			map.put("directories", autoFileSystem.getDirectories());
 			map.put("files", autoFileSystem.getFiles());
 
@@ -119,13 +121,15 @@ public class WebConfig {
 			DirectorySearch subdir = new DirectorySearch();
 			BeanUtils.populate(subdir, params);
 
-			autoFileSystem.PopulateFiles(subdir.getSubdir());
+			autoFileSystem.AddSubdirectory(subdir.getSubdir());
+			autoFileSystem.PopulateFiles();
 			res.redirect("/search");
 			return null;
 		});
 
 		post("/gotoroot", (req, res) -> {
-			autoFileSystem.PopulateFiles("");
+			autoFileSystem.RemoveSubdirectory();
+			autoFileSystem.PopulateFiles();
 			res.redirect("/search");
 			return null;
 			});

@@ -19,8 +19,9 @@
             <input style="display:none" id="target_subdir" type="text" name="subdir" maxlength="50" size="30" value="${subdir!}">
         </form>
         <form id="gotoroot" action="/gotoroot" method="post">
-            <input type="submit" value="Return to Root">
+            <input type="submit" value="Go Up">
         </form>
+        <p>${fullDir}</p>
     </div>
 
     <ul class="files">

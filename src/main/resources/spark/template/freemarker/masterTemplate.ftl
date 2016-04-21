@@ -55,7 +55,7 @@
     </head>
     <body>
 		<div class="page">
-	  		<h1>Inventory</h1>
+	  		<h1>${title}</h1>
 		  	<div class="navigation">
 		  	</div>
 		  	<div class="body">
@@ -66,8 +66,7 @@
 		  	</div>
 		</div>
 
-		<button type="button" style=""
-        onclick="showMatchingFiles('2')">hide all but 2</button>
+
 
         <p id="demo"></p>
     </body>

@@ -2,9 +2,7 @@ package com.inventory.autofilesystem;
 
 import java.io.File;
 import java.io.FilenameFilter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by wmonks on 3/24/2016.
@@ -14,22 +12,41 @@ public class AutoFileSystem {
     List<String> files;
     List<String> directories;
 
+    public String fullDir = "";
+
     String root = "C:\\autofiletest";
-    String subdir = "";
+    Queue<String> subdir = new PriorityQueue<String>();
 
     public AutoFileSystem() {
         files = new ArrayList<String>();
-        PopulateFiles("");
+        PopulateFiles();
     }
 
-    public void PopulateFiles(String subdir) {
-        this.subdir = subdir;
+    public void AddSubdirectory(String subdirectory) {
+        subdir.add(subdirectory);
+    }
 
-        File f = new File(root + "/" + subdir);
+    public void RemoveSubdirectory() {
+        if(subdir.size() > 0)
+            subdir.remove();
+
+    }
+
+    public void PopulateFiles() {
+        String dir = root + "\\";
+
+        for(String sdir : subdir)
+        {
+            dir += sdir + "\\";
+        }
+
+        fullDir = dir;
+
+        File f = new File(dir);
 
 
 
-        if(f!=null) {
+        if(f!=null && f.list() != null) {
 
             files = new ArrayList<String>(Arrays.asList(f.list()));
             directories = new ArrayList<String>(Arrays.asList(f.list(new FilenameFilter() {
