@@ -68,7 +68,6 @@ public class WebConfig {
 			//List<Car> cars = service.getMatchingCars(c);
 			Map<String, Object> map = new HashMap<>();
 			map.put("pageTitle", "Files");
-			map.put("pageTitle", "Cars");
 			map.put("fullDir", autoFileSystem.fullDir);
 			map.put("directories", autoFileSystem.getDirectories());
 			map.put("files", autoFileSystem.getFiles());

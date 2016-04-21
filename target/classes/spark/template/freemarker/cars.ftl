@@ -32,5 +32,6 @@
 		<li><em>No cars.</em>
 	</#if>
 	</ul>
-
+<button type="button" style=""
+        onclick="showMatchingFiles('2')">hide all but 2</button>
 </@layout.masterTemplate>

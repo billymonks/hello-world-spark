@@ -14,7 +14,7 @@ public class AutoFileSystem {
 
     public String fullDir = "";
 
-    String root = "C:\\autofiletest";
+    String root = "";
     Queue<String> subdir = new PriorityQueue<String>();
 
     public AutoFileSystem() {
